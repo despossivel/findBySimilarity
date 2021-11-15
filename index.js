@@ -12,6 +12,14 @@ const findBySimilarity = (list = [], strings = '', keys = [], terms = normalize(
   }
 
 
+const findBySimilaritySub = (list = [], strings = '', keys = [], subs = [], terms = normalize(strings).toLowerCase().split(' ')) => {
+  return list
+    .filter(el => terms
+      .some(t => keys
+        .some(b => subs
+          .some(i => normalize(el[b][i]).toLowerCase().includes(t)))))
+}
+
 
 
 
